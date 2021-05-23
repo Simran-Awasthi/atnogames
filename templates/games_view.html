@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="title">
+        <h1>Game List</h1>
+        <h3>Check out some amazing games</h3>
+    </div>
+    <ul class="game_row">
+        {% for game in games: %}
+        <li class="game_item">
+            <img src="{{ game['thumb_url'] }}" alt="image"/>
+            <!-- <div class="frame">
+                <iframe
+                    src="//www.youtube.com/embed/C8kSrkz8Hz8"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+            </div> -->
+            <h3>{{ game['title'] }}</h3>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
