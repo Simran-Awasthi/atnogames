@@ -41,8 +41,9 @@ body {
     display: flex;
     flex-direction: row;
     overflow: auto;
-    height: 450px;
-    align-items: center;
+    height: 340px;
+    padding-top: 40px;
+    align-items: flex-start;
     justify-content: start;
 }
 
@@ -57,6 +58,8 @@ body {
     width: auto;
     flex: 1 1 0px;
     transition: transform 500ms;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .game_item:hover ~ .game_item, .game_item:focus ~ .game_item {
@@ -72,7 +75,7 @@ body {
 }
 
 .game_item img {
-    height: 300px;
+    height: 200px;
     width: auto;
     object-fit: cover;
     display: flex;

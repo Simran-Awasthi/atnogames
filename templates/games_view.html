@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="title">
@@ -14,14 +15,20 @@
     </div>
     <ul class="game_row">
         {% for game in games: %}
-        <li class="game_item">
+        <script>
+           var showModal = function(game_1) {
+                alert(game_1)
+                $.ajax({
+                type : "GET",
+                url : '/details?url=' + game_1,
+                success: function (data) {
+                    console.log(data);
+                    }
+                });
+            };
+        </script>
+        <li class="game_item" id="{{ game['uid'] }}" onclick="showModal('{{ game.link }}')">
             <img src="{{ game['thumb_url'] }}" alt="image"/>
-            <!-- <div class="frame">
-                <iframe
-                    src="//www.youtube.com/embed/C8kSrkz8Hz8"
-                    frameborder="0" allowfullscreen>
-                </iframe>
-            </div> -->
             <h3>{{ game['title'] }}</h3>
         </li>
         {% endfor %}
